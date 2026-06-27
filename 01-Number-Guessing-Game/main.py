@@ -6,9 +6,13 @@ secret_number = random.randint(1, 99)
 print("Welcome to the Number Guessing Game!")
 
 while True:
-    # Get the user's guess
-    guess = input("What is your number (1-99)? ")
-    guess = int(guess)
+    try:
+        # Get the user's guess
+        guess = input("What is your number (1-99)? ")
+        guess = int(guess)
+    except ValueError:
+        print("❌ Warning: Please enter a valid number, not text!\n")
+        continue
 
     # Check the guess against the secret number
     if guess == secret_number:
